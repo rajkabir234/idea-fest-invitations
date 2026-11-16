@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a2347">
+  <meta name="description" content="Personalize and download your Startup & Idea Fest 2026 invitation.">
+  <title>Invitation Maker | Startup &amp; Idea Fest 2026</title>
+  <link rel="icon" href="festival-logo.png">
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+<header>
+  <div class="wrap topbar">
+    <a href="https://startupideafest.org/" aria-label="Startup and Idea Fest website"><img src="festival-logo.png" alt="Startup &amp; Idea Fest 2026"></a>
+    <a class="site-link" href="https://startupideafest.org/">Festival website <span aria-hidden="true">↗</span></a>
+  </div>
+</header>
+<main class="wrap">
+  <div class="intro">
+    <h1>Invitation <span>maker</span></h1>
+    <p>Add a name to the festival invitation and download it to share.</p>
+  </div>
+  <div class="workspace">
+    <section class="panel editor" aria-label="Personalize an invitation">
+      <fieldset class="modes">
+        <legend class="sr-only">Invitation mode</legend>
+        <label><input type="radio" name="mode" value="single" checked>Single invitation</label>
+        <label><input type="radio" name="mode" value="bulk">Bulk invitations</label>
+      </fieldset>
+      <form id="single">
+        <label for="name">Guest name</label>
+        <input type="text" id="name" placeholder="e.g. Aarya Sharma" autocomplete="off" required>
+        <button class="primary" id="png" disabled><span aria-hidden="true">↓</span> Download PNG</button>
+      </form>
+      <section id="bulk" hidden aria-label="Bulk invitations" aria-busy="false">
+        <div class="row">
+          <label for="csv">Import a CSV</label>
+          <button type="button" class="link" id="sample">Download sample CSV</button>
+        </div>
+        <input type="file" id="csv" accept=".csv,text/csv">
+        <p class="hint" id="csv-help">Use a CSV with one guest per row and a Name column.</p>
+        <label for="names">Guest names</label>
+        <textarea id="names" rows="5" placeholder="Paste one guest name per line"></textarea>
+        <div class="row batch-meta">
+          <span id="count">0 guests</span>
+          <button class="link" type="button" id="export" disabled>Export guest CSV</button>
+        </div>
+        <button class="primary" type="button" id="zip" disabled><span aria-hidden="true">↓</span> Download all as ZIP</button>
+      </section>
+      <p id="status" class="status" role="status"></p>
+    </section>
+    <section class="panel preview" aria-labelledby="preview-heading">
+      <div class="row preview-head">
+        <h2 id="preview-heading">Invitation preview</h2>
+        <span>1080 × 1350 PNG</span>
+      </div>
+      <div class="art">
+        <canvas id="poster" width="1080" height="1350" role="img" aria-label="Festival invitation preview"></canvas>
+      </div>
+      <div class="row pager" id="pager" hidden>
+        <button type="button" id="previous" aria-label="Preview previous guest">←</button>
+        <span id="position" aria-live="polite"></span>
+        <button type="button" id="next" aria-label="Preview next guest">→</button>
+      </div>
+    </section>
+  </div>
+</main>
+<footer><div class="wrap"><span>Startup &amp; Idea Fest 2026</span><a href="https://startupideafest.org/">startupideafest.org ↗</a></div></footer>
+</body>
+</html>
